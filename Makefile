@@ -5,6 +5,7 @@ init: docker-down \
 
 down: docker-down app-clear
 lint: app-lint
+lint-fix: app-lint-fix
 
 # docker run
 docker-up:

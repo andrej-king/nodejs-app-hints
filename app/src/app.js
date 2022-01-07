@@ -1,1 +1,2 @@
-console.log('Hello')
+require('./events/EventEmitter')
+require('./events/EventTarget')

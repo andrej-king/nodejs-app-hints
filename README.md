@@ -10,17 +10,22 @@
 * `EventEmitter` from default node module `events`. Preferable to use for work with events.
 
 ### Фазы NodeJS
-* <span style="color:green">Инициализация</span>
+* ![Red] Инициализация
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">таймеры</span>
+* ![DarkMagenta]  таймеры
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">pending, callbacks</span>
+* ![DarkMagenta]  pending, callbacks
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">idle, prepare</span>
+* ![DarkMagenta]  idle, prepare
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">poll</span>
+* ![DarkMagenta]  poll
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">check</span> 
+* ![DarkMagenta]  check 
 * nextTick, microtaskQueue
-* <span style="color:darkmagenta">close callback</span>
-* <span style="color:green">Проверка на окончание</span>
+* ![DarkMagenta] close callback
+* nextTick, microtaskQueue
+* ![Red] Проверка на окончание
+
+[Red]: https://via.placeholder.com/10/f03c15/000000?text=+
+[Green]: https://via.placeholder.com/10/adff2f/000000?text=+
+[DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+

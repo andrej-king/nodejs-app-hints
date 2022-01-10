@@ -26,8 +26,17 @@
 * nextTick, microtaskQueue
 * ![Red] Проверка на окончание
 
+### Call Stack
+`First in Last out`
+
+### [Worker Threads][WorkerThreads]
+* По-умолчания 4 (По количеству ядер процессора)
+* Можно увеличить количество до 1024
+* `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+
 
 [EventLoop]: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
+[WorkerThreads]: https://nodejs.org/en/docs/guides/dont-block-the-event-loop/

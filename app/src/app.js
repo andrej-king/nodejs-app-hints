@@ -1,4 +1,5 @@
 // require('./events/EventEmitter')
 // require('./events/EventTarget')
 // require('./timers/practiceWithTimers')
-require('./eventLoop/eventLoopUnderstanding')
+// require('./eventLoop/eventLoopUnderstanding')
+// require('./workerThreads/workerThreads')

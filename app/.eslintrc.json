@@ -13,6 +13,7 @@
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
     "space-in-parens": ["error", "never"],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "space-before-function-paren": ["error", "never"]
   }
 }

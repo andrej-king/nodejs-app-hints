@@ -64,4 +64,3 @@ setImmediate(() => {
   // will return link to timer
   timerId.ref()
 })
-

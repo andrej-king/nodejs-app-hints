@@ -9,7 +9,7 @@
 ### Events
 * `EventEmitter` Из стандартного модуля `events`, предпочтительнее для работы с `events`.
 
-### Фазы NodeJS [(Event Loop)][EventLoop]
+## Фазы NodeJS [(Event Loop)][EventLoop]
 * ![Red] Инициализация
 * nextTick, microtaskQueue
 * ![DarkMagenta]  таймеры
@@ -26,13 +26,20 @@
 * nextTick, microtaskQueue
 * ![Red] Проверка на окончание
 
-### Call Stack
+## Call Stack
 `First in Last out`
 
-### [Worker Threads][WorkerThreads]
+## [Worker Threads][WorkerThreads]
 * По-умолчания 4 (По количеству ядер процессора)
 * Можно увеличить количество до 1024
 * `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
+
+## Измерение производительности (performance measurement)
+* Использование класса `PerformanceObserver` из `perf_hooks` модуля.
+* `performance.mark('markName')` Поставить отметку времени.
+* `performance.measure('slow', 'start', 'end')` Посчитать разницу во времени между отметками.
+* `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
+* `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

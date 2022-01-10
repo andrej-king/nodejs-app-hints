@@ -3,3 +3,4 @@
 // require('./timers/practiceWithTimers')
 // require('./eventLoop/eventLoopUnderstanding')
 // require('./workerThreads/workerThreads')
+// require('./performanceMeasurement/measurement')

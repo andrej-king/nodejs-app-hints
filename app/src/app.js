@@ -4,3 +4,5 @@
 // require('./eventLoop/eventLoopUnderstanding')
 // require('./workerThreads/workerThreads')
 // require('./performanceMeasurement/measurement')
+// require('./multithreading/single/workerThread')
+// require('./multithreading/multi/MultithreadingWorker')

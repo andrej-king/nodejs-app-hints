@@ -41,9 +41,13 @@
 * `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
+## Multithreading
+* [Multithreading][Multithreading]
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+
 
 [EventLoop]: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 [WorkerThreads]: https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
+[Multithreading]: https://nodejs.org/api/worker_threads.html#workerworkerdata

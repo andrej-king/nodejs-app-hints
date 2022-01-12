@@ -1,6 +1,6 @@
 // multithreading
-const {Worker} = require('worker_threads')
-const path = require('path');
+const { Worker } = require('worker_threads')
+const path = require('path')
 
 const compute = (array) => {
   console.log()

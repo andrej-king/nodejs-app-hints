@@ -31,7 +31,6 @@
 
 ## [Worker Threads][WorkerThreads]
 
-
 ## Измерение производительности ([perf_hooks][perf_hooks])
 * Использование класса `PerformanceObserver` из `perf_hooks` модуля.
 * `performance.mark('markName')` Поставить отметку времени.

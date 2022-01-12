@@ -30,22 +30,24 @@
 `First in Last out`
 
 ## [Worker Threads][WorkerThreads]
-* По-умолчания 4 (По количеству ядер процессора)
-* Можно увеличить количество до 1024
-* `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
 
-## Измерение производительности ([performance measurement][perf_hooks])
+
+## Измерение производительности ([perf_hooks][perf_hooks])
 * Использование класса `PerformanceObserver` из `perf_hooks` модуля.
 * `performance.mark('markName')` Поставить отметку времени.
 * `performance.measure('slow', 'start', 'end')` Посчитать разницу во времени между отметками.
 * `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
-## [Multithreading][Multithreading]
+## Multithreading ([worker_threads][worker_threads] and [Worker Pool][WorkerPool])
+* По-умолчания 4 (По количеству ядер процессора)
+* Можно увеличить количество до 1024
+* `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
 
-## [Run system console commands][SystemConsoleCommands]
-* `exec` from `child_process` module.
-* `spawn` from `child_process` module.
+## Run system console commands ([child_process][child_process])
+* [exec][child_process_exec] from `child_process` module.
+* [spawn][child_process_spawn] from `child_process` module.
+* [fork][child_process_fork] from `child_process` module
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
@@ -53,7 +55,10 @@
 
 [Events]: https://nodejs.org/api/events.html
 [EventLoop]: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
-[WorkerThreads]: https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
+[WorkerPool]: https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
 [perf_hooks]: https://nodejs.org/api/perf_hooks.html
-[Multithreading]: https://nodejs.org/api/worker_threads.html#workerworkerdata
-[SystemConsoleCommands]: https://nodejs.org/api/child_process.html
+[worker_threads]: https://nodejs.org/api/worker_threads.html#workerworkerdata
+[child_process]: https://nodejs.org/api/child_process.html
+[child_process_exec]: https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
+[child_process_spawn]: https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows
+[child_process_fork]: https://nodejs.org/api/child_process.html#child_processforkmodulepath-args-options

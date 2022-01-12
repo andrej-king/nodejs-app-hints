@@ -6,3 +6,5 @@
 // require('./performanceMeasurement/measurement')
 // require('./multithreading/single/workerThread')
 // require('./multithreading/multi/MultithreadingWorker')
+// require('./systemConsole/exec')
+// require('./systemConsole/spawn')

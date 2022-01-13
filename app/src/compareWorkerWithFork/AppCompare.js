@@ -14,7 +14,7 @@ performanceObserver.observe({entryTypes: ['measure']})
 
 // ~ time with file: 1123.2914380002767
 const workerFunction = (array) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     performance.mark('worker start')
     const worker = new Worker(__dirname + '/worker.js', {
       workerData: {
@@ -34,7 +34,7 @@ const workerFunction = (array) => {
 
 // ~ time with file: 27815.639732999727
 const forkFunction = (array) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     performance.mark('fork start')
     const forkProcess = fork(__dirname + '/fork.js')
 

@@ -44,9 +44,9 @@
 * `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
 
 ## Run system console commands ([child_process][child_process])
-* [exec][child_process_exec] from `child_process` module.
-* [spawn][child_process_spawn] from `child_process` module.
-* [fork][child_process_fork] from `child_process` module
+* [exec][child_process_exec] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
+* [spawn][child_process_spawn] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
+* [fork][child_process_fork] из `child_process` модуля. Обмен сообщениями между потоками.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

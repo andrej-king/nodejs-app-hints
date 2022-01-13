@@ -1,6 +1,7 @@
 const perf_hooks = require('perf_hooks')
 
 // Measuring the execution time of the whole function
+// eslint-disable-next-line no-func-assign
 testFunction = perf_hooks.performance.timerify(testFunction)
 
 const performanceObserver = new perf_hooks.PerformanceObserver((items, observer) => {

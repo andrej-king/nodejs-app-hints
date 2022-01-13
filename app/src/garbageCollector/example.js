@@ -1,9 +1,11 @@
 let outter = null
 let run = function () {
   let inner = outter
+
+  // eslint-disable-next-line no-unused-vars
   let unused = function () {
     if (inner) {
-      console.log("hi")
+      console.log('hi')
     }
   }
 

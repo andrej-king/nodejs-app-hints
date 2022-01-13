@@ -55,8 +55,12 @@
 * Лучше использовать Worker.
 
 ## Посмотреть bytecode программы
-* Запустить node с параметром --print-bytecode: `node --print-bytecode src/app.js`
-* Добавить параметр в `package.json` скрипт: `"start": "node --print-bytecode src/app.js",`
+* Запустить node с параметром: `node --print-bytecode src/app.js`
+* Или добавить параметр в `package.json` скрипт: `"start": "node --print-bytecode src/app.js",`
+
+## Посмотреть состояние программы после очистки Garbage Collector
+* Запустить node с параметрами: `node --expose-gc --trace_gc_verbose src/app.js`
+* Или добавить параметр в `package.json` скрипт: `"start": "node --expose-gc --trace_gc_verbose src/app.js",`
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

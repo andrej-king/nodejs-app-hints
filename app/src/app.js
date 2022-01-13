@@ -11,3 +11,4 @@
 // require('./systemConsole/ForkApp')
 // require('./compareWorkerWithFork/AppCompare')
 // require('./bytecodeExample/example')
+// require('./garbageCollector/example')

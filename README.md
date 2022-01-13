@@ -38,12 +38,12 @@
 * `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
-## Multithreading ([worker_threads][worker_threads] and [Worker Pool][WorkerPool])
+## Многопоточность ([worker_threads][worker_threads] and [Worker Pool][WorkerPool])
 * По-умолчания 4 (По количеству ядер процессора)
 * Можно увеличить количество до 1024
 * `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
 
-## Run system console commands ([child_process][child_process])
+## Запуск отдельных процессов ([child_process][child_process])
 * [exec][child_process_exec] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
 * [spawn][child_process_spawn] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
 * [fork][child_process_fork] из `child_process` модуля. Обмен сообщениями между потоками.

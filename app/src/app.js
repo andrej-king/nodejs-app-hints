@@ -9,3 +9,4 @@
 // require('./systemConsole/exec')
 // require('./systemConsole/spawn')
 // require('./systemConsole/ForkApp')
+// require('./compareWorkerWithFork/AppCompare')

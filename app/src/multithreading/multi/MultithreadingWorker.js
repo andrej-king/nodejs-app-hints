@@ -1,11 +1,12 @@
 // multithreading
 const { Worker } = require('worker_threads')
-const path = require('path')
+const workerFileName = __dirname + '/worker.js'
+console.log(workerFileName)
 
 const compute = (array) => {
   console.log()
   return new Promise((resolve, reject) => {
-    const worker = new Worker('./worker.js', { // Cannot find module '/app/worker.js'
+    const worker = new Worker('/worker.js', { // Cannot find module '/app/worker.js'
       workerData: {
         array
       }

@@ -39,6 +39,7 @@
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
 ## Многопоточность ([worker_threads][worker_threads] and [Worker Pool][WorkerPool])
+* Отдельный поток в том же Node процессе.
 * По-умолчания 4 (По количеству ядер процессора)
 * Можно увеличить количество до 1024
 * `process.env.UV_THREADPOOL_SIZE=8` Установить количество Worker Threads, которые будут работать паралельно.
@@ -46,7 +47,12 @@
 ## Запуск отдельных процессов ([child_process][child_process])
 * [exec][child_process_exec] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
 * [spawn][child_process_spawn] из `child_process` модуля. Запуск системного процесса (например `ls` для просмотра содержимого каталога).
-* [fork][child_process_fork] из `child_process` модуля. Обмен сообщениями между потоками.
+* [fork][child_process_fork] из `child_process` модуля.(Создаёт отдельный instance NodeJS) Обмен сообщениями между потоками.
+
+## Сравнение произодительности используя Worker и Fork
+* Время выполнения при передаче небольших данных примерно одинаковое.
+* Время выполнения при передаче больших данных (file ~ 100 mb), Worker(1.198 сек) vs Fork(27.815 сек).
+* Лучше использовать Worker.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

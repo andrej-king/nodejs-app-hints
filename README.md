@@ -54,6 +54,10 @@
 * Время выполнения при передаче больших данных (file ~ 100 mb), Worker(1.198 сек) vs Fork(27.815 сек).
 * Лучше использовать Worker.
 
+## Посмотреть bytecode программы
+* Запустить node с параметром --print-bytecode: `node --print-bytecode src/app.js`
+* Добавить параметр в `package.json` скрипт: `"start": "node --print-bytecode src/app.js",`
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+

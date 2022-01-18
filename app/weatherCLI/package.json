@@ -1,0 +1,21 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "check-bytecode": "node --print-bytecode ./src/app.js",
+    "check-gc": "node --expose-gc --trace_gc_verbose ./src/app.js",
+    "dev-run": "nodemon ./src/app.js",
+    "eslint": "eslint --ext .js, ./src",
+    "eslint-fix": "eslint --fix --ext .js ./src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "eslint": "^8.3.0"
+  }
+}

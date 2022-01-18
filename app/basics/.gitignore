@@ -1,0 +1,2 @@
+# Exclude mp4 file for testing performance
+src/compareWorkerWithFork/file.mp4

@@ -1,25 +1,25 @@
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/**/logs
+/**/*.log
+/**/npm-debug.log*
+/**/yarn-debug.log*
+/**/yarn-error.log*
 
 # Dependency directories
-node_modules/
+/**/node_modules/
 
 # TypeScript cache
-*.tsbuildinfo
+/**/*.tsbuildinfo
 
 # Optional npm cache directory
-.npm
+/**/.npm
 
 # Optional eslint cache
-.eslintcache
+/**/.eslintcache
 
 # dotenv environment variables file
-.env
-.env.test
+/**/.env
+/**/.env.test
 
 # App tmp file
 .ready

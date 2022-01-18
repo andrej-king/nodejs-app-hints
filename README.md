@@ -29,8 +29,6 @@
 ## Call Stack
 `First in Last out`
 
-## [Worker Threads][WorkerThreads]
-
 ## Измерение производительности ([perf_hooks][perf_hooks])
 * Использование класса `PerformanceObserver` из `perf_hooks` модуля.
 * `performance.mark('markName')` Поставить отметку времени.
@@ -38,7 +36,7 @@
 * `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
-## Многопоточность ([worker_threads][worker_threads] and [Worker Pool][WorkerPool])
+## Многопоточность ([Worker Threads][worker_threads] and [Worker Pool][WorkerPool])
 * Отдельный поток в том же Node процессе.
 * По-умолчания 4 (По количеству ядер процессора)
 * Можно увеличить количество до 1024

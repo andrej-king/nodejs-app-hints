@@ -36,7 +36,8 @@
 * `performance.{getEntries()` | `getEntriesByName(...)` | `getEntriesByType(...)`} Вернуть результат измерений.
 * `perf_hooks.performance.timerify(functionName)` Измерение времени выполнения всей функции.
 
-## Многопоточность ([Worker Threads][worker_threads] and [Worker Pool][WorkerPool])
+## Многопоточность ([Worker Threads][WorkerThreads] and [Worker Pool][WorkerPool])
+* `worker_threads` модуль.
 * Отдельный поток в том же Node процессе.
 * По-умолчания 4 (По количеству ядер процессора)
 * Можно увеличить количество до 1024
@@ -68,7 +69,7 @@
 [EventLoop]: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 [WorkerPool]: https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
 [perf_hooks]: https://nodejs.org/api/perf_hooks.html
-[worker_threads]: https://nodejs.org/api/worker_threads.html#workerworkerdata
+[WorkerThreads]: https://nodejs.org/api/worker_threads.html#workerworkerdata
 [child_process]: https://nodejs.org/api/child_process.html
 [child_process_exec]: https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
 [child_process_spawn]: https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows

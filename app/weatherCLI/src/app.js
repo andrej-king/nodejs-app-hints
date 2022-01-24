@@ -17,6 +17,21 @@ const saveToken = async (token) => {
   }
 }
 
+const getForecast = async () => {
+  try {
+    const weather = await getWeather(process.env.CITY)
+    console.log(weather) // Красивый вывод погоды
+  } catch (e) {
+    if (e?.response?.status === 404) {
+      printError('Неверно указан город')
+    } else if (e?.response?.status === 401) {
+      printError('Неверное указан токен')
+    } else {
+      printError(e.message)
+    }
+  }
+}
+
 const initCLI = () => {
   const args = getArgs(process.argv)
   if (args.h) {
@@ -24,16 +39,13 @@ const initCLI = () => {
     // Вывод help
   }
   if (args.s) {
-    // printSuccess(args.s)
     // Сохранить название города
   }
   if (args.t) {
     saveToken(args.t)
-    // printSuccess(args.t)
   }
-  getWeather('tallinn')
-  // printError('Some error')
-  // вывести погоду
+
+  getForecast()
 }
 
 initCLI()

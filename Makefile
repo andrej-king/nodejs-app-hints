@@ -2,13 +2,16 @@ init: weather-cli
 
 weather-cli: docker-down \
 	app-clear \
-	docker-build docker-weather-cli-up \
-	app-init
+	docker-build \
+	app-init \
+	docker-weather-cli-up \
+
 
 basics: docker-down \
 	app-clear \
-	docker-build docker-basics-up \
-	app-init
+	docker-build \
+	app-init \
+	docker-basics-up \
 
 down: docker-down app-clear
 lint: app-lint

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import {getArgs} from './helpers/args.js'
-import {printHelp, printSuccess, printError} from './services/log.service.js'
+import {printHelp, printSuccess, printError, printWeather} from './services/log.service.js'
 import {saveKeyValue, TOKEN_DICTIONARY} from './services/storage.service.js'
-import {getWeather} from './services/api.service.js'
+import {getWeather, getIcon} from './services/api.service.js'
 
 const saveToken = async (token) => {
   if (!token.length) {
@@ -33,7 +33,8 @@ const saveCity = async (city) => {
 const getForecast = async () => {
   try {
     const weather = await getWeather()
-    console.log(weather) // Красивый вывод погоды
+    printWeather(weather, getIcon(weather.weather[0].icon))
+    // console.log(weather) // Красивый вывод погоды
   } catch (e) {
     if (e?.response?.status === 404) {
       printError('Неверно указан город')

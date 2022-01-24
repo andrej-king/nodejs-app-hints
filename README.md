@@ -68,6 +68,14 @@
 
 ## [Path][path]
 
+## Weather CLI
+* `docker-compose run --rm node-weather-cli sh`
+* `cd src`
+* `node app.js -h`
+* `node app.js -t [openweathermap token]`
+* `node app.js -s [CITY]`
+* Parameters can be passed to the `package.json` file.
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+

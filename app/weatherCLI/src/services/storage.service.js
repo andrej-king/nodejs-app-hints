@@ -5,6 +5,11 @@ import {promises} from 'fs'
 // const filePath = join(homedir(), 'weather-data.json') // on linux dir '/root'
 const filePath = process.env.STORAGE_PATH + '/.weather-data.json'
 
+const TOKEN_DICTIONARY = {
+  token: 'token',
+  city: 'city'
+}
+
 const saveKeyValue = async (key, value) => {
   let data = {}
   if (await isExists(filePath)) {
@@ -49,4 +54,4 @@ const examples = () => {
   console.log(`sep: ${sep}`)
 }
 
-export {saveKeyValue, getKeyValue}
+export {saveKeyValue, getKeyValue, TOKEN_DICTIONARY}

@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node ./src/app.js -s tallin -t someTokenValue -h",
+    "start": "node ./src/app.js -h",
     "dev-run": "nodemon ./src/app.js",
     "eslint": "eslint --ext .js, ./src",
     "eslint-fix": "eslint --fix --ext .js ./src"

@@ -26,8 +26,8 @@ services:
       dockerfile: ./docker/node/Dockerfile
     restart: 'no'
     volumes:
-      - ./app/basics:/app
-#      - ./app/weatherCLI:/app
+#      - ./app/basics:/app
+      - ./app/weatherCLI:/app
     environment:
       PORT: 3000
 

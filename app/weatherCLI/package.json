@@ -3,19 +3,27 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/app.js",
+  "bin": {
+    "wather": "./src/app.js"
+  },
+  "type": "module",
   "scripts": {
-    "start": "node ./src/app.js",
-    "check-bytecode": "node --print-bytecode ./src/app.js",
-    "check-gc": "node --expose-gc --trace_gc_verbose ./src/app.js",
+    "start": "node ./src/app.js -s tallin -t someTokenValue -h",
     "dev-run": "nodemon ./src/app.js",
     "eslint": "eslint --ext .js, ./src",
     "eslint-fix": "eslint --fix --ext .js ./src"
   },
+  "keywords": [
+    "clie",
+    "weather"
+  ],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.25.0"
+  },
   "devDependencies": {
-    "nodemon": "^2.0.15",
-    "eslint": "^8.3.0"
+    "eslint": "^8.3.0",
+    "nodemon": "^2.0.15"
   }
 }

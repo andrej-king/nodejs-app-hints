@@ -13,8 +13,7 @@ services:
 #    tty: true
     restart: 'always'
     volumes:
-#      - ./app/basics:/app
-      - ./app/weatherCLI:/app
+      - ./app/basics:/app
     ports:
       - "3000:3000"
     environment:
@@ -27,7 +26,21 @@ services:
       dockerfile: ./docker/node/Dockerfile
     restart: 'no'
     volumes:
-#      - ./app/basics:/app
+      - ./app/basics:/app
+#      - ./app/weatherCLI:/app
+    environment:
+      PORT: 3000
+
+  # weather cli
+  node-weather-cli:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    command: sh -c "npm start" # run server cli.
+    restart: 'no'
+    volumes:
       - ./app/weatherCLI:/app
+    ports:
+      - "3000:3000"
     environment:
       PORT: 3000

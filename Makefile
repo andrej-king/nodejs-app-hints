@@ -1,6 +1,13 @@
-init: docker-down \
+init: weather-cli
+
+weather-cli: docker-down \
 	app-clear \
-	docker-build docker-up \
+	docker-build docker-weather-cli-up \
+	app-init
+
+basics: docker-down \
+	app-clear \
+	docker-build docker-basics-up \
 	app-init
 
 down: docker-down app-clear
@@ -10,6 +17,12 @@ lint-fix: app-lint-fix
 # docker run
 docker-up:
 	docker-compose up -d # --scale node=3
+
+docker-basics-up:
+	docker-compose run --rm node
+
+docker-weather-cli-up:
+	docker-compose run --rm node-weather-cli
 
 # docker down, remove old containers
 docker-down:

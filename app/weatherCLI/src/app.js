@@ -6,7 +6,7 @@ import {getWeather} from './services/api.service.js'
 
 const saveToken = async (token) => {
   if (!token.length) {
-    printError('Не передан token')
+    printError('Не передан токен')
     return
   }
   try {
@@ -17,9 +17,22 @@ const saveToken = async (token) => {
   }
 }
 
+const saveCity = async (city) => {
+  if (!city.length) {
+    printError('Не передано название города')
+    return
+  }
+  try {
+    await saveKeyValue(TOKEN_DICTIONARY.city, city)
+    printSuccess('Название города сохранено')
+  } catch (e) {
+    printError(e.message)
+  }
+}
+
 const getForecast = async () => {
   try {
-    const weather = await getWeather(process.env.CITY)
+    const weather = await getWeather()
     console.log(weather) // Красивый вывод погоды
   } catch (e) {
     if (e?.response?.status === 404) {
@@ -36,10 +49,9 @@ const initCLI = () => {
   const args = getArgs(process.argv)
   if (args.h) {
     printHelp()
-    // Вывод help
   }
   if (args.s) {
-    // Сохранить название города
+    saveCity(args.s)
   }
   if (args.t) {
     saveToken(args.t)

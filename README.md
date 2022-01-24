@@ -61,6 +61,13 @@
 * Запустить node с параметрами: `node --expose-gc --trace_gc_verbose src/app.js`
 * Или добавить параметр в `package.json` скрипт: `"start": "node --expose-gc --trace_gc_verbose src/app.js",`
 
+## [CLI аргументы][cli_args]
+* `process.argv` Получить CLI агрументы
+
+## [OS][os]
+
+## [Path][path]
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+
@@ -74,3 +81,6 @@
 [child_process_exec]: https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
 [child_process_spawn]: https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows
 [child_process_fork]: https://nodejs.org/api/child_process.html#child_processforkmodulepath-args-options
+[cli_args]: https://nodejs.org/docs/latest/api/process.html#processargv
+[os]: https://nodejs.org/docs/latest/api/os.html
+[path]: https://nodejs.org/docs/latest/api/path.html

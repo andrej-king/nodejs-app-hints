@@ -11,9 +11,9 @@ const saveToken = async (token) => {
   }
   try {
     await saveKeyValue(TOKEN_DICTIONARY.token, token)
-    printSuccess('Токен сохранен')
+    return printSuccess('Токен сохранен')
   } catch (e) {
-    printError(e.message)
+    return printError(e.message)
   }
 }
 
@@ -24,24 +24,24 @@ const saveCity = async (city) => {
   }
   try {
     await saveKeyValue(TOKEN_DICTIONARY.city, city)
-    printSuccess('Название города сохранено')
+    return printSuccess('Название города сохранено')
   } catch (e) {
-    printError(e.message)
+    return printError(e.message)
   }
 }
 
 const getForecast = async () => {
   try {
     const weather = await getWeather()
-    printWeather(weather, getIcon(weather.weather[0].icon))
+    return printWeather(weather, getIcon(weather.weather[0].icon))
     // console.log(weather) // Красивый вывод погоды
   } catch (e) {
     if (e?.response?.status === 404) {
-      printError('Неверно указан город')
+      return printError('Неверно указан город')
     } else if (e?.response?.status === 401) {
-      printError('Неверное указан токен')
+      return printError('Неверное указан токен')
     } else {
-      printError(e.message)
+      return printError(e.message)
     }
   }
 }
@@ -49,16 +49,16 @@ const getForecast = async () => {
 const initCLI = () => {
   const args = getArgs(process.argv)
   if (args.h) {
-    printHelp()
+    return printHelp()
   }
   if (args.s) {
-    saveCity(args.s)
+    return saveCity(args.s)
   }
   if (args.t) {
-    saveToken(args.t)
+    return saveToken(args.t)
   }
 
-  getForecast()
+  return getForecast()
 }
 
 initCLI()

@@ -5,23 +5,23 @@ import axios from 'axios'
 const getIcon = (icon) => {
   switch (icon.slice(0, -1)) {
     case '01':
-      return '☀' // солнечно
+      return '☀'
     case '02':
-      return '⛅' //облачно с прояснениями
+      return '⛅'
     case '03':
-      return '☁' //
+      return '☁'
     case '04':
-      return '☁' //
+      return '☁'
     case '09':
-      return '🌦️' //
+      return '🌦️'
     case '10':
-      return '🌦️' //
+      return '🌦️'
     case '11':
-      return '⛈' //
+      return '⛈'
     case '13':
-      return '🌨️' //
+      return '🌨️'
     case '50':
-      return '🌫️' //
+      return '🌫️'
   }
 }
 

@@ -7,17 +7,14 @@ services:
       context: .
       dockerfile: ./docker/node/Dockerfile
     command: sh -c "npm run dev-run" # run server in dev mode.
-#    command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run dev-run" # run server in dev mode after install dependencies.
-#    command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run check-bytecode" # Check app bytecode in console.
-#    command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run check-gc" # Check result Garbage Collector in console
-#    tty: true
     restart: 'always'
     volumes:
-      - ./app/basics:/app
+      - ./app/dashboard-api:/app
     ports:
       - "3000:3000"
     environment:
       PORT: 3000
+      STORAGE_PATH: /app
 
   # Command line for install, check
   node-cli:
@@ -26,6 +23,7 @@ services:
       dockerfile: ./docker/node/Dockerfile
     restart: 'no'
     volumes:
-      - ./app/basics:/app
+      - ./app/dashboard-api:/app
     environment:
       PORT: 3000
+

@@ -1,7 +1,6 @@
 # Hints for Applications Using Node JS
 
-## Dev
-
+## Basics
 * `make init` Run app.
 * `make lint` Run app linters.
 * `make lint-fix` Run app linters with 'fix' mode.
@@ -69,18 +68,24 @@
 ## [Path][path]
 
 ## Weather CLI
-* `docker-compose run --rm node-weather-cli sh`
-* `cd src`
-* `node app.js -h`
-* `node app.js -t [openweathermap token]`
-* `node app.js -s [CITY]`
+* `make weather-cli` Run app.
+* `make app-weather-cli-lint` Run app linters.
+* `make app-weather-cli-lint-fix` Run app linters with 'fix' mode.
+* Войти в docker image
+  * `cd src`
+  * `node app.js -h`
+  * `node app.js -t [openweathermap token]`
+  * `node app.js -s [CITY]`
 * или:
-* `npm start -- -t [OPENWEATHER TOKEN]`
-* `npm start -- -s [CITY]`
-* `npm start` выведет погоду в городе сохранённом ранее.
-* Параметры могут быть сохранены `package.json` файле.
+  * `npm start -- -t [OPENWEATHER TOKEN]`
+  * `npm start -- -s [CITY]`
+  * `npm start` выведет погоду в городе сохранённом ранее.
+  * Параметры могут быть сохранены `package.json` файле.
 
 ## Dashboard API
+* `make dashboard-api` Run app.
+* `make app-dashboard-api-lint` Run app linters.
+* `make app-dashboard-api-lint-fix` Run app linters with 'fix' mode.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

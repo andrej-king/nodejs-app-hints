@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  # Working NodeJS service
+  node:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    command: sh -c "npm start" # run server cli.
+    restart: 'no'
+    volumes:
+      - ./app/weatherCLI:/app
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      STORAGE_PATH: /app
+
+  # Command line for install, check
+  node-cli:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    restart: 'no'
+    volumes:
+      - ./app/weatherCLI:/app
+    environment:
+      PORT: 3000

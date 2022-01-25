@@ -1,13 +1,11 @@
-init: dashboard-api
+#init: basics
 
-dashboard-api: docker-down \
-	app-clear \
-	docker-build \
-	app-init \
+dashboard-api: docker-dashboard-api-down \
+	docker-dashboard-api-build \
+	app-dashboard-api-init \
 	docker-dashboard-api-up
 
 weather-cli: docker-down \
-	app-clear \
 	docker-build \
 	app-init \
 	docker-weather-cli-up
@@ -28,12 +26,6 @@ docker-up:
 
 docker-basics-up:
 	docker-compose run --rm node
-
-docker-weather-cli-up:
-	docker-compose run --rm node-weather-cli
-
-docker-dashboard-api-up:
-	docker-compose run --rm node-dashboard-api
 
 # docker down, remove old containers
 docker-down:
@@ -69,3 +61,47 @@ app-lint:
 # Fix js code style by rules
 app-lint-fix:
 	docker-compose run --rm node-cli npm run eslint-fix
+
+
+# ------------------- App weather-cli -------------------
+docker-weather-cli-up:
+	docker-compose -f docker-compose.weather-cli.yml up -d
+
+docker-weather-cli-down:
+	docker-compose -f docker-compose.weather-cli.yml down --remove-orphans
+
+docker-weather-cli-build:
+	docker-compose -f docker-compose.weather-cli.yml build #--pull
+
+app-weather-cli-init: app-weather-cli-npm-install
+
+app-weather-cli-npm-install:
+	docker-compose -f docker-compose.weather-cli.yml run --rm node-cli npm install
+
+app-dashboard-api-lint:
+	docker-compose -f docker-compose.weather-cli.yml run --rm node-cli npm run eslint
+
+app-dashboard-api-lint-fix:
+	docker-compose -f docker-compose.weather-cli.yml run --rm node-cli npm run eslint-fix
+
+
+# ------------------- App dashboard api -------------------
+docker-dashboard-api-up:
+	docker-compose -f docker-compose.dashboard-api.yml up -d
+
+docker-dashboard-api-down:
+	docker-compose -f docker-compose.dashboard-api.yml down --remove-orphans
+
+docker-dashboard-api-build:
+	docker-compose -f docker-compose.dashboard-api.yml build #--pull
+
+app-dashboard-api-init: app-dashboard-api-npm-install
+
+app-dashboard-api-npm-install:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm install
+
+app-dashboard-api-lint:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run eslint
+
+app-dashboard-api-lint-fix:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run eslint-fix

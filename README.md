@@ -74,6 +74,10 @@
 * `node app.js -h`
 * `node app.js -t [openweathermap token]`
 * `node app.js -s [CITY]`
+* или:
+* `npm start -- -t [OPENWEATHER TOKEN]`
+* `npm start -- -s [CITY]`
+* `npm start` выведет погоду в городе сохранённом ранее.
 * Parameters can be passed to the `package.json` file.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+

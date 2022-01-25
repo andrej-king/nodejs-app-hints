@@ -1,17 +1,22 @@
-init: weather-cli
+init: dashboard-api
+
+dashboard-api: docker-down \
+	app-clear \
+	docker-build \
+	app-init \
+	docker-dashboard-api-up
 
 weather-cli: docker-down \
 	app-clear \
 	docker-build \
 	app-init \
-	docker-weather-cli-up \
-
+	docker-weather-cli-up
 
 basics: docker-down \
 	app-clear \
 	docker-build \
 	app-init \
-	docker-basics-up \
+	docker-basics-up
 
 down: docker-down app-clear
 lint: app-lint
@@ -26,6 +31,9 @@ docker-basics-up:
 
 docker-weather-cli-up:
 	docker-compose run --rm node-weather-cli
+
+docker-dashboard-api-up:
+	docker-compose run --rm node-dashboard-api
 
 # docker down, remove old containers
 docker-down:

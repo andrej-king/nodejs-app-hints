@@ -27,7 +27,8 @@ services:
     restart: 'no'
     volumes:
 #      - ./app/basics:/app
-      - ./app/weatherCLI:/app
+#      - ./app/weatherCLI:/app
+      - ./app/dashboard-api:/app
     environment:
       PORT: 3000
 
@@ -40,6 +41,21 @@ services:
     restart: 'no'
     volumes:
       - ./app/weatherCLI:/app
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      STORAGE_PATH: /app
+
+  # api app
+  node-dashboard-api:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    command: sh -c "npm run dev-run" # run server in dev mode.
+    restart: 'always'
+    volumes:
+      - ./app/dashboard-api:/app
     ports:
       - "3000:3000"
     environment:

@@ -78,7 +78,7 @@
 * `npm start -- -t [OPENWEATHER TOKEN]`
 * `npm start -- -s [CITY]`
 * `npm start` выведет погоду в городе сохранённом ранее.
-* Parameters can be passed to the `package.json` file.
+* Параметры могут быть сохранены `package.json` файле.
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

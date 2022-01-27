@@ -5,7 +5,7 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./docker/node/Dockerfile
+      dockerfile: ./docker/node/dashboard-api/Dockerfile
     command: sh -c "npm run dev-run" # run server in dev mode.
     restart: 'always'
     volumes:
@@ -20,7 +20,7 @@ services:
   node-cli:
     build:
       context: .
-      dockerfile: ./docker/node/Dockerfile
+      dockerfile: ./docker/node/dashboard-api/Dockerfile
     restart: 'no'
     volumes:
       - ./app/dashboard-api:/app

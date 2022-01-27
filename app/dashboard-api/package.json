@@ -8,8 +8,8 @@
     "start": "node ./dist/app.js",
     "dev-run": "nodemon ./dist/app.js",
     "tsc": "tsc",
-    "eslint": "eslint --ext .js, ./src",
-    "eslint-fix": "eslint --fix --ext .js ./src"
+    "eslint": "eslint --ext .ts, ./src",
+    "eslint-fix": "eslint --fix --ext .ts ./src"
   },
   "keywords": [
     "dashboard",

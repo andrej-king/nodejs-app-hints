@@ -108,4 +108,4 @@ app-dashboard-api-lint-fix:
 
 # typescript compile
 app-dashboard-api-tsc:
-	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli tsc
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run tsc

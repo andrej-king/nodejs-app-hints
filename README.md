@@ -86,7 +86,7 @@
 * `make dashboard-api` Run app.
 * `make app-dashboard-api-lint` Run app linters.
 * `make app-dashboard-api-lint-fix` Run app linters with 'fix' mode.
-* `make app-dashboard-api-tsc` Typescript компилятор
+* `make app-dashboard-api-tsc` Typescript компилятор (компилирует ts в папку ./dist)
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

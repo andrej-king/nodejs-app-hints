@@ -88,6 +88,11 @@
 * `make app-dashboard-api-lint-fix` Run app linters with 'fix' mode.
 * `make app-dashboard-api-tsc` Typescript компилятор (компилирует ts в папку ./dist)
 
+## [Typescript][Typescript]
+* `npm i -g typescript` Глобальная установка typescript компилятора.
+* `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
+* `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
+
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+
 [DarkMagenta]: https://via.placeholder.com/10/8B008B/000000?text=+
@@ -104,3 +109,4 @@
 [cli_args]: https://nodejs.org/docs/latest/api/process.html#processargv
 [os]: https://nodejs.org/docs/latest/api/os.html
 [path]: https://nodejs.org/docs/latest/api/path.html
+[Typescript]: https://www.typescriptlang.org/

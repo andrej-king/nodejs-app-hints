@@ -1,35 +1,24 @@
-import express, {Request, Response, NextFunction} from 'express'
+import express, {Express} from 'express'
 import {userRouter} from './users/users.js'
+import {Server} from 'http'
 
-const port = process.env.PORT || 3000
-const app = express()
+export class App {
+  app: Express
+  server: Server
+  port: number
 
-// глобальный обработчик каждого запросы
-app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log('Время ', Date.now())
-  next()
-})
+  constructor() {
+    this.app = express()
+    this.port = 3000 // process.env.PORT || 3000
+  }
 
-// middleware для запросов
-app.all('/hello', (req: Request, res: Response, next: NextFunction) => {
-  console.log('all')
-  next()
-})
+  useRoutes() {
+    this.app.use('/users', userRouter)
+  }
 
-app.get('/hello', (req: Request, res: Response) => {
-  console.log('hello')
-  throw new Error('Some error')
-  // res.send('Hello')
-})
-
-app.use('/users', userRouter)
-
-// error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.log(err.message)
-  res.status(500).json(err.message)
-})
-
-app.listen(port, () => {
-  console.log(`Server running on ${port} port.`)
-})
+  public async init() {
+    this.useRoutes()
+    this.server = this.app.listen(this.port)
+    console.log(`Server running on ${this.port} port.`)
+  }
+}

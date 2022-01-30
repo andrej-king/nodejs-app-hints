@@ -2,12 +2,12 @@
   "name": "dashboard-api",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/app.js",
-  "type": "module",
+  "main": "./dist/main.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "node ./dist/app.js",
-    "dev-run": "nodemon ./dist/app.js",
-    "tsc": "tsc",
+    "start": "node ./dist/main.js",
+    "dev-run": "nodemon ./dist/main.js",
+    "build": "tsc",
     "eslint": "eslint --ext .ts, ./src",
     "eslint-fix": "eslint --fix --ext .ts ./src"
   },

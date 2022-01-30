@@ -107,5 +107,5 @@ app-dashboard-api-lint-fix:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run eslint-fix
 
 # typescript compile
-app-dashboard-api-tsc:
-	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run tsc
+app-dashboard-api-build:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run build

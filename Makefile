@@ -95,7 +95,7 @@ docker-dashboard-api-down:
 docker-dashboard-api-build:
 	docker-compose -f docker-compose.dashboard-api.yml build #--pull
 
-app-dashboard-api-init: app-dashboard-api-npm-install
+app-dashboard-api-init: app-dashboard-api-npm-install app-dashboard-api-build
 
 app-dashboard-api-npm-install:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm install

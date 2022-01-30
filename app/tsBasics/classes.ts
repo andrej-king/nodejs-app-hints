@@ -41,7 +41,7 @@ class MapLocation extends Coordinates {
 const mapLocation = new MapLocation(0, 100, 'example')
 //endregion
 
-//region
+//region Классы и интерфейсы
 interface LoggerInterface {
   log: (s: string) => void
 }
@@ -51,4 +51,32 @@ class Logger implements LoggerInterface {
     console.log(s)
   }
 }
+
+//endregion
+
+//region Классы и generics
+class MyClass<T> {
+  a: T
+}
+
+const myClass = new MyClass<string>()
+console.log(myClass.a)
+//endregion
+
+//region Абстрактные классы
+abstract class Base {
+  print(s: string) {
+    console.log(s)
+  }
+
+  abstract error(s: string): void
+}
+
+class BaseExtended extends Base {
+  error(s: string): void {
+    // some details
+  }
+}
+
+new BaseExtended().print('text')
 //endregion

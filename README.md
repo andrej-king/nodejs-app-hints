@@ -89,6 +89,7 @@
 * `make app-dashboard-api-tsc` Typescript компилятор (компилирует ts в папку ./dist)
 
 ## [Typescript][Typescript]
+* [Tutorial][TypescriptTutorial]
 * `npm i -g typescript` Глобальная установка typescript компилятора.
 * `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
 * `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
@@ -110,3 +111,4 @@
 [os]: https://nodejs.org/docs/latest/api/os.html
 [path]: https://nodejs.org/docs/latest/api/path.html
 [Typescript]: https://www.typescriptlang.org/
+[TypescriptTutorial]: https://www.typescripttutorial.net/

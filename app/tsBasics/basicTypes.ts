@@ -1,8 +1,13 @@
+// @ts-ignore
 let a: number = 5
+// @ts-ignore
 let b: string = 'abc'
+// @ts-ignore
 let c: string = '4'
+// @ts-ignore
 let d = true
 
+// @ts-ignore
 let e: number = a + Number(b)
 
 let names: string[] = ['a', 'b', 'c']

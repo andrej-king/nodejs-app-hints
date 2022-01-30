@@ -1,4 +1,5 @@
 //region Простой класс
+// @ts-ignore
 class Coordinates {
   lat: number
   long: number

@@ -1,9 +1,12 @@
+// @ts-ignore
 const a = 'asdasda'
 
 // special literal type
+// @ts-ignore
 let b: 'hi' = 'hi'
 
 //region Литеральные типы
+// @ts-ignore
 type direction = 'left' | 'right'
 
 function moveDog(direction: direction): -1 | 0 | 1 {
@@ -42,10 +45,13 @@ const connection2 = {
 }
 
 //region Приведение типов
+// @ts-ignore
 let c: any = 5
 
 // лучше использовать первый вариант
+// @ts-ignore
 let d = c as number // записи идентичны (приведение к типу)
+// @ts-ignore
 let e = <number>c   // записи идентичны (приведение к типу)
 //endregion
 

@@ -1,3 +1,4 @@
+// @ts-ignore
 type direction = 'left' | 'right'
 
 //region enum, простая запись

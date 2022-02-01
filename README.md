@@ -91,6 +91,7 @@
 ## [Typescript][Typescript]
 * [Tutorial][TypescriptTutorial]
 * [reflect-metadata][reflect-metadata]
+* [Dependency Injection][inversify]
 * `npm i -g typescript` Глобальная установка typescript компилятора.
 * `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
 * `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
@@ -114,3 +115,4 @@
 [Typescript]: https://www.typescriptlang.org/
 [TypescriptTutorial]: https://www.typescripttutorial.net/
 [reflect-metadata]: https://github.com/rbuckton/reflect-metadata
+[inversify]: https://inversify.io/

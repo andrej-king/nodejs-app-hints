@@ -8,7 +8,10 @@ import 'reflect-metadata'
 import {IUsersController} from './users.controller.interface'
 
 @injectable()
-export class UsersController extends BaseController implements IUsersController {
+export class UsersController
+  extends BaseController
+  implements IUsersController
+{
   constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
     super(loggerService)
 

@@ -8,8 +8,7 @@ import 'reflect-metadata'
 
 @injectable()
 export class ExceptionFilter implements IExceptionFilter {
-  constructor(@inject(TYPES.ILogger) private logger: ILogger) {
-  }
+  constructor(@inject(TYPES.ILogger) private logger: ILogger) {}
 
   catch(err: Error, req: Request, res: Response, next: NextFunction) {
     if (err instanceof HttpError) {

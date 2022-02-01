@@ -2,22 +2,49 @@
   "root": true,
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {"project": ["./tsconfig.json"]},
-  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "env": {
     "browser": true,
     "es2021": true,
     "node": true
   },
   "rules": {
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"],
-    "space-in-parens": ["error", "never"],
-    "indent": ["error", 2, {"SwitchCase": 1}],
-    "space-before-function-paren": ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}]
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "off"
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn"
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "arrowParens": "always",
+        "useTabs": false,
+        "tabWidth": 2,
+        "semi": false,
+        "trailingComma": "none",
+        "bracketSpacing": false,
+        "printWidth": 80,
+        "endOfLine": "lf"
+      }
+    ]
   },
-  "ignorePatterns": ["src/**/*.test.ts"]
+  "ignorePatterns": [
+    "src/**/*.test.ts"
+  ]
 }

@@ -12,7 +12,7 @@ export class LoggerService implements ILogger {
       displayInstanceName: false,
       displayLoggerName: false,
       displayFilePath: 'hidden',
-      displayFunctionName: false,
+      displayFunctionName: false
     })
   }
 

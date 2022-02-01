@@ -90,6 +90,7 @@
 
 ## [Typescript][Typescript]
 * [Tutorial][TypescriptTutorial]
+* [reflect-metadata][reflect-metadata]
 * `npm i -g typescript` Глобальная установка typescript компилятора.
 * `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
 * `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
@@ -112,3 +113,4 @@
 [path]: https://nodejs.org/docs/latest/api/path.html
 [Typescript]: https://www.typescriptlang.org/
 [TypescriptTutorial]: https://www.typescripttutorial.net/
+[reflect-metadata]: https://github.com/rbuckton/reflect-metadata

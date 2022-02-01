@@ -21,12 +21,12 @@ export class UsersController
     ])
   }
 
-  login(req: Request, res: Response, next: NextFunction) {
+  login(req: Request, res: Response, next: NextFunction): void {
     // this.ok(res, 'login')
     next(new HttpError(401, 'Ошибка авторизации', 'login'))
   }
 
-  join(req: Request, res: Response, next: NextFunction) {
+  join(req: Request, res: Response, next: NextFunction): void {
     this.ok(res, 'registration')
   }
 }

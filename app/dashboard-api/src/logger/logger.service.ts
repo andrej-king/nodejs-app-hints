@@ -1,7 +1,8 @@
 import {Logger} from 'tslog'
+import {ILogger} from './logger.interface'
 
-export class LoggerService {
-  private logger: Logger
+export class LoggerService implements ILogger {
+  public logger: Logger
 
   constructor() {
     this.logger = new Logger({
@@ -21,7 +22,7 @@ export class LoggerService {
     this.logger.error(...args)
   }
 
-  war(...args: unknown[]) {
+  warn(...args: unknown[]) {
     this.logger.warn(...args)
   }
 }

@@ -1,11 +1,11 @@
 import {BaseController} from '../common/base.controller'
-import {LoggerService} from '../logger/logger.service'
 import {NextFunction, Request, Response} from 'express'
 import {HttpError} from '../errors/http-error'
+import {ILogger} from '../logger/logger.interface'
 
 export class UsersController extends BaseController {
   constructor(
-    logger: LoggerService
+    logger: ILogger
   ) {
     super(logger)
 

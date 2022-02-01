@@ -15,7 +15,7 @@ export abstract class BaseController {
 
   public send<T>(res: Response, code: number, message: T) {
     res.type('application/json')
-    return res.status(200).json(message)
+    return res.status(code).json(message)
   }
 
   public ok<T>(res: Response, message: T) {
@@ -30,7 +30,7 @@ export abstract class BaseController {
     for (const route of routes) {
       this.logger.log(`[${route.method}] ${route.path}`)
       const handler = route.func.bind(this)
-      this.router[route.method](route.path, route.func, handler)
+      this.router[route.method](route.path, handler)
     }
   }
 }

@@ -19,7 +19,7 @@ export class App {
     @inject(TYPES.ExceptionFilter) private exceptionFilter: ExceptionFilter
   ) {
     this.app = express()
-    this.port = 3000 // process.env.PORT || 3000
+    this.port = parseInt(process.env.PORT || '3000', 10)
   }
 
   useRoutes(): void {

@@ -43,8 +43,5 @@
         "endOfLine": "lf"
       }
     ]
-  },
-  "ignorePatterns": [
-    "src/**/*.test.ts"
-  ]
+  }
 }

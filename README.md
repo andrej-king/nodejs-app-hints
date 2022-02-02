@@ -99,7 +99,7 @@
 * `make app-dashboard-api-lint` Run app linters.
 * `make app-dashboard-api-lint-fix` Run app linters with 'fix' mode.
 * `make app-dashboard-api-build` Typescript компилятор (компилирует ts в папку ./dist)
-* `app-dashboard-api-performance` Посмотреть производительность приложения (Сгенерированные html графики складываются в папку `.clinic`)
+* `app-dashboard-api-performance` Посмотреть производительность приложения (Сгенерированные html графики складываются в папку `.clinic`) (в docker должен быть установлен `clinic` и `autocannon`)
 
 ## [Typescript][Typescript]
 * [Tutorial][TypescriptTutorial]

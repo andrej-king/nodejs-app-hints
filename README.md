@@ -5,6 +5,18 @@
 * `make lint` Run app linters.
 * `make lint-fix` Run app linters with 'fix' mode.
 
+## Tools
+* [ClinicJS Doctor][clinicjs_doctor] Диагностика проблем с производительностью в приложениях Node.js
+* [Autocannon][autocannon] Имитация нагрузки
+
+## TypeScript libs
+* [tsc][tsc] Компилятор `ts` в `js`
+* [inversify][inversify] Dependency Injection
+* [reflect-metadata][reflect-metadata]
+* [tslog][tslog] Логгер
+* [ts-node][ts-node] Обработчик ts, для перезапуска приложения без компиляции (используется вместе с `nodemon`)
+* 
+
 ### [Events][Events]
 * `EventEmitter` Из стандартного модуля `events`, предпочтительнее для работы с `events`.
 
@@ -90,8 +102,6 @@
 
 ## [Typescript][Typescript]
 * [Tutorial][TypescriptTutorial]
-* [reflect-metadata][reflect-metadata]
-* [Dependency Injection][inversify]
 * `npm i -g typescript` Глобальная установка typescript компилятора.
 * `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
 * `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
@@ -114,5 +124,12 @@
 [path]: https://nodejs.org/docs/latest/api/path.html
 [Typescript]: https://www.typescriptlang.org/
 [TypescriptTutorial]: https://www.typescripttutorial.net/
+
+[tsc]: https://www.npmjs.com/package/typescript
+[inversify]: https://github.com/inversify/InversifyJS
 [reflect-metadata]: https://github.com/rbuckton/reflect-metadata
-[inversify]: https://inversify.io/
+[tslog]: https://tslog.js.org/
+[ts-node]: https://www.npmjs.com/package/ts-node
+
+[clinicjs_doctor]: https://clinicjs.org/doctor/
+[autocannon]: https://github.com/mcollina/autocannon

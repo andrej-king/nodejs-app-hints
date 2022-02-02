@@ -109,3 +109,6 @@ app-dashboard-api-lint-fix:
 # typescript compile
 app-dashboard-api-build:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run build
+
+app-dashboard-api-performance:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli sh -c "clinic doctor --on-port 'autocannon -m POST localhost:3000/users/join' -- node dist/main.js"

@@ -8,6 +8,7 @@ import 'reflect-metadata'
 import {IUsersController} from './users.controller.interface'
 import {UserLoginDto} from './dto/user-login.dto'
 import {UserJoinDto} from './dto/user-join.dto'
+import {User} from './user.entity'
 
 @injectable()
 export class UsersController
@@ -33,12 +34,13 @@ export class UsersController
     next(new HttpError(401, 'Ошибка авторизации', 'login'))
   }
 
-  join(
-    req: Request<{}, {}, UserJoinDto>,
+  async join(
+    {body}: Request<{}, {}, UserJoinDto>,
     res: Response,
     next: NextFunction
-  ): void {
-    console.log(req.body)
-    this.ok(res, 'registration')
+  ): Promise<void> {
+    const newUser = new User(body.email, body.name)
+    await newUser.setPassword(body.password)
+    this.ok(res, newUser)
   }
 }

@@ -8,9 +8,7 @@ import {ILogger} from '../logger/logger.interface'
 export class PrismaService {
   client: PrismaClient
 
-  constructor(
-    @inject(TYPES.ILogger) private logger: ILogger
-  ) {
+  constructor(@inject(TYPES.ILogger) private logger: ILogger) {
     this.client = new PrismaClient()
   }
 
@@ -20,7 +18,9 @@ export class PrismaService {
       this.logger.log('[PrismaService] Успешное подключение к базе данных')
     } catch (e) {
       if (e instanceof Error) {
-        this.logger.log('[PrismaService] Ошибка подключения к базе данных: ' + e.message)
+        this.logger.log(
+          '[PrismaService] Ошибка подключения к базе данных: ' + e.message
+        )
       }
     }
   }

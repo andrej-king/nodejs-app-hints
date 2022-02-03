@@ -26,6 +26,8 @@ services:
       - ./app/dashboard-api:/app
     environment:
       PORT: 3000
+      SALT: 10
+      DATABASE_URL: "mysql://root:root@db:3306/dashboard_api?connection_limit=5&socket_timeout=3"
 
   db:
     image: mysql:5.7

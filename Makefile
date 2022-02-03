@@ -116,3 +116,6 @@ app-dashboard-api-build:
 # if installed with npm global: clinic, autocannon
 app-dashboard-api-performance:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli sh -c "clinic doctor --on-port 'autocannon -m POST localhost:3000/users/join' -- node dist/main.js"
+
+app-dashboard-api-migrations:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli sh -c "npx prisma migrate dev"

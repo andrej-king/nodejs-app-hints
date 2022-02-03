@@ -15,7 +15,7 @@
 * [reflect-metadata][reflect-metadata]
 * [tslog][tslog] Логгер
 * [ts-node][ts-node] Обработчик ts, для перезапуска приложения без компиляции (используется вместе с `nodemon`)
-* 
+* [prisma][prisma] ORM для работы с бд
 
 ### [Events][Events]
 * `EventEmitter` Из стандартного модуля `events`, предпочтительнее для работы с `events`.
@@ -131,6 +131,7 @@
 [reflect-metadata]: https://github.com/rbuckton/reflect-metadata
 [tslog]: https://tslog.js.org/
 [ts-node]: https://www.npmjs.com/package/ts-node
+[prisma]: https://www.prisma.io/
 
 [clinicjs_doctor]: https://clinicjs.org/doctor/
 [autocannon]: https://github.com/mcollina/autocannon

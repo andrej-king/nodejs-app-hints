@@ -9,6 +9,7 @@ import {IUsersController} from './users.controller.interface'
 import {UserLoginDto} from './dto/user-login.dto'
 import {UserJoinDto} from './dto/user-join.dto'
 import {IUsersService} from './users.service.interface'
+import {ValidateMiddleware} from '../common/validate.middleware'
 
 @injectable()
 export class UsersController
@@ -22,7 +23,12 @@ export class UsersController
     super(loggerService)
 
     this.bindRoutes([
-      {path: '/join', method: 'post', func: this.join},
+      {
+        path: '/join',
+        method: 'post',
+        func: this.join,
+        middlewares: [new ValidateMiddleware(UserJoinDto)]
+      },
       {path: '/login', method: 'post', func: this.login}
     ])
   }

@@ -92,6 +92,9 @@ docker-dashboard-api-up:
 docker-dashboard-api-down:
 	docker-compose -f docker-compose.dashboard-api.yml down --remove-orphans
 
+docker-dashboard-api-down-clear:
+	docker-compose -f docker-compose.dashboard-api.yml down -v --remove-orphans
+
 docker-dashboard-api-build:
 	docker-compose -f docker-compose.dashboard-api.yml build #--pull
 

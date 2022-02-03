@@ -27,3 +27,16 @@ services:
     environment:
       PORT: 3000
 
+  db:
+    image: mysql:5.7
+    restart: 'no'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dashboard_api
+    ports:
+      - "3306:3306"
+    volumes:
+      - dashboard-api-db:/var/lib/mysql
+
+volumes:
+  dashboard-api-db:

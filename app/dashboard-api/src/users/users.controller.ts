@@ -6,6 +6,8 @@ import {inject, injectable} from 'inversify'
 import {TYPES} from '../types'
 import 'reflect-metadata'
 import {IUsersController} from './users.controller.interface'
+import {UserLoginDto} from './dto/user-login.dto'
+import {UserJoinDto} from './dto/user-join.dto'
 
 @injectable()
 export class UsersController
@@ -21,12 +23,14 @@ export class UsersController
     ])
   }
 
-  login(req: Request, res: Response, next: NextFunction): void {
+  login(req: Request<{}, {}, UserLoginDto>, res: Response, next: NextFunction): void {
+    console.log(req.body)
     // this.ok(res, 'login')
     next(new HttpError(401, 'Ошибка авторизации', 'login'))
   }
 
-  join(req: Request, res: Response, next: NextFunction): void {
+  join(req: Request<{}, {}, UserJoinDto>, res: Response, next: NextFunction): void {
+    console.log(req.body)
     this.ok(res, 'registration')
   }
 }

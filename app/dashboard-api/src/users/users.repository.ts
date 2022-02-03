@@ -4,6 +4,7 @@ import {inject, injectable} from 'inversify'
 import 'reflect-metadata'
 import {TYPES} from '../types'
 import {PrismaService} from '../database/prisma.service'
+import {User} from './user.entity'
 
 @injectable()
 export class UsersRepository implements IUsersRepository {
@@ -18,7 +19,7 @@ export class UsersRepository implements IUsersRepository {
   }
 
   find(email: string): Promise<UserModel | null> {
-    return this.prismaService.client.findFirst({
+    return this.prismaService.client.userModel.findFirst({
       where: {email}
     })
   }

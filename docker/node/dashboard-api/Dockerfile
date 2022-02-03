@@ -1,6 +1,6 @@
 FROM node:17-alpine
 
-RUN npm i -g npm@8.* typescript
+RUN npm i -g npm@latest typescript
 
 # clinic: Diagnose performance issues in your Node.js applications
 # autocannon: benchmarking tool

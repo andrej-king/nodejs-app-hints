@@ -5,7 +5,7 @@ import {inject, injectable} from 'inversify'
 import {TYPES} from './types'
 import 'reflect-metadata'
 import {json} from 'body-parser'
-import {IConfigService} from './config/config.service.interface'
+// import {IConfigService} from './config/config.service.interface'
 import {IExceptionFilter} from './errors/exception.filter.interface'
 import {UsersController} from './users/users.controller'
 import {PrismaService} from './database/prisma.service'
@@ -20,7 +20,7 @@ export class App {
     @inject(TYPES.ILogger) private logger: ILogger,
     @inject(TYPES.UserController) private userController: UsersController,
     @inject(TYPES.ExceptionFilter) private exceptionFilter: IExceptionFilter,
-    @inject(TYPES.ConfigService) private configService: IConfigService,
+    // @inject(TYPES.ConfigService) private configService: IConfigService,
     @inject(TYPES.PrismaService) private prismaService: PrismaService
   ) {
     this.app = express()

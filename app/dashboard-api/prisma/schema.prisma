@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = "mysql://root:root@db/dashboard_api?connection_limit=5&socket_timeout=3"
 }
 
 model UserModel {

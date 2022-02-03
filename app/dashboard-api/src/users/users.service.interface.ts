@@ -1,8 +1,8 @@
 import {UserJoinDto} from './dto/user-join.dto'
-import {User} from './user.entity'
 import {UserLoginDto} from './dto/user-login.dto'
+import {UserModel} from '@prisma/client'
 
 export interface IUsersService {
-  createUser: (dto: UserJoinDto) => Promise<User | null>
+  createUser: (dto: UserJoinDto) => Promise<UserModel | null>
   validateUser: (dto: UserLoginDto) => Promise<boolean>
 }

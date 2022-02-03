@@ -7,6 +7,9 @@ import {ILogger} from './logger/logger.interface'
 import {TYPES} from './types'
 import {IExceptionFilter} from './errors/exception.filter.interface'
 import 'reflect-metadata'
+import {IUsersService} from './users/users.service.interface'
+import {IUsersController} from './users/users.controller.interface'
+import {UsersService} from './users/users.service'
 
 export interface IBootstrapReturn {
   appContainer: Container
@@ -16,7 +19,8 @@ export interface IBootstrapReturn {
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<ILogger>(TYPES.ILogger).to(LoggerService)
   bind<IExceptionFilter>(TYPES.ExceptionFilter).to(ExceptionFilter)
-  bind<UsersController>(TYPES.UsersController).to(UsersController)
+  bind<IUsersController>(TYPES.UserController).to(UsersController)
+  bind<IUsersService>(TYPES.UserService).to(UsersService)
   bind<App>(TYPES.Application).to(App)
 })
 

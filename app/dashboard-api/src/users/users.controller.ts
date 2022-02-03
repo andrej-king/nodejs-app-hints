@@ -8,14 +8,17 @@ import 'reflect-metadata'
 import {IUsersController} from './users.controller.interface'
 import {UserLoginDto} from './dto/user-login.dto'
 import {UserJoinDto} from './dto/user-join.dto'
-import {User} from './user.entity'
+import {IUsersService} from './users.service.interface'
 
 @injectable()
 export class UsersController
   extends BaseController
   implements IUsersController
 {
-  constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
+  constructor(
+    @inject(TYPES.ILogger) private loggerService: ILogger,
+    @inject(TYPES.UserService) private userService: IUsersService
+  ) {
     super(loggerService)
 
     this.bindRoutes([
@@ -39,8 +42,12 @@ export class UsersController
     res: Response,
     next: NextFunction
   ): Promise<void> {
-    const newUser = new User(body.email, body.name)
-    await newUser.setPassword(body.password)
-    this.ok(res, newUser)
+    const result = await this.userService.createUser(body)
+
+    if (!result) {
+      return next(new HttpError(422, 'Такой пользователь уже существует'))
+    }
+
+    this.ok(res, {email: result.email})
   }
 }

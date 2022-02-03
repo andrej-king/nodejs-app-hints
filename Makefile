@@ -119,3 +119,6 @@ app-dashboard-api-performance:
 
 app-dashboard-api-migrations:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli sh -c "npx prisma migrate dev"
+
+app-dashboard-api-generate-types:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli sh -c "npx prisma generate"

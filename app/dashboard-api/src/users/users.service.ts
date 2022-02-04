@@ -18,16 +18,10 @@ export class UsersService implements IUsersService {
 
   async createUser({email, name, password}: UserJoinDto): Promise<UserModel | null> {
     const newUser = new User(email, name)
-    // const salt = this.configService.get('SALT')
     const salt = process.env.SALT
     await newUser.setPassword(password, Number(salt))
 
     const existedUser = await this.usersRepository.find(email)
-
-    /**
-     * Проверка пользователь есть ли пользователь:
-     * Если есть - вернуть null
-     * Если нету - создать*/
 
     if (existedUser) {
       return null
@@ -36,7 +30,19 @@ export class UsersService implements IUsersService {
     return this.usersRepository.create(newUser)
   }
 
-  async validateUser(dto: UserLoginDto): Promise<boolean> {
-    return true
+  async validateUser({email, password}: UserLoginDto): Promise<boolean> {
+    const existedUser = await this.usersRepository.find(email)
+
+    if (!existedUser) {
+      return false
+    }
+
+    const newUser = new User(
+      existedUser.email,
+      existedUser.name,
+      existedUser.password
+    )
+
+    return newUser.comparePassword(password)
   }
 }

@@ -29,18 +29,25 @@ export class UsersController
         func: this.join,
         middlewares: [new ValidateMiddleware(UserJoinDto)]
       },
-      {path: '/login', method: 'post', func: this.login}
+      {
+        path: '/login',
+        method: 'post',
+        func: this.login,
+        middlewares: [new ValidateMiddleware(UserLoginDto)]}
     ])
   }
 
-  login(
-    req: Request<{}, {}, UserLoginDto>,
+  async login(
+    {body}: Request<{}, {}, UserLoginDto>,
     res: Response,
     next: NextFunction
-  ): void {
-    console.log(req.body)
-    // this.ok(res, 'login')
-    next(new HttpError(401, 'Ошибка авторизации', 'login'))
+  ): Promise<void> {
+    const result = await this.userService.validateUser(body)
+    if (!result) {
+      return next(new HttpError(401, 'Ошибка авторизации', 'login'))
+    }
+
+    this.ok(res, {status: 'ok'})
   }
 
   async join(

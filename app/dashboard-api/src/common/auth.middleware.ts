@@ -14,7 +14,7 @@ export class AuthMiddleware implements IMiddleware {
           if (err) {
             next()
           } else if (payload) {
-            req.user = payload as string
+            req.user = (<JwtPayload>payload).email
             next()
           }
         }

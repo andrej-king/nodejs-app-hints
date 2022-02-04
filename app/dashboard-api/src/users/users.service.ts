@@ -49,4 +49,8 @@ export class UsersService implements IUsersService {
 
     return newUser.comparePassword(password)
   }
+
+  async getUserInfo(email: string): Promise<UserModel | null> {
+    return await this.usersRepository.find(email)
+  }
 }

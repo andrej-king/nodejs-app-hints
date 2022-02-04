@@ -81,7 +81,11 @@ export class UsersController
     next: NextFunction
   ): Promise<void> {
     const userInfo = await this.userService.getUserInfo(user)
-    this.ok(res, {user: userInfo})
+    this.ok(res, {
+      email: userInfo?.email,
+      id: userInfo?.id,
+      name: userInfo?.name
+    })
   }
 
   private async signJWT(email: string, secret: string): Promise<string> {

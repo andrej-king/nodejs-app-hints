@@ -20,7 +20,6 @@ export class UsersController
   constructor(
     @inject(TYPES.ILogger) private loggerService: ILogger,
     @inject(TYPES.UserService) private userService: IUsersService
-    // @inject(TYPES.ConfigService) private configService: ConfigService
   ) {
     super(loggerService)
 

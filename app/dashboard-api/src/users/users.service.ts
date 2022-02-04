@@ -16,7 +16,11 @@ export class UsersService implements IUsersService {
     @inject(TYPES.UsersRepository) private usersRepository: IUsersRepository
   ) {}
 
-  async createUser({email, name, password}: UserJoinDto): Promise<UserModel | null> {
+  async createUser({
+    email,
+    name,
+    password
+  }: UserJoinDto): Promise<UserModel | null> {
     const newUser = new User(email, name)
     const salt = process.env.SALT
     await newUser.setPassword(password, Number(salt))

@@ -22,7 +22,7 @@ export class UsersService implements IUsersService {
     password
   }: UserJoinDto): Promise<UserModel | null> {
     const newUser = new User(email, name)
-    const salt = process.env.SALT
+    const salt = process.env.SALT as string
     await newUser.setPassword(password, Number(salt))
 
     const existedUser = await this.usersRepository.find(email)

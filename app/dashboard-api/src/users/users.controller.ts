@@ -10,6 +10,7 @@ import {UserLoginDto} from './dto/user-login.dto'
 import {UserJoinDto} from './dto/user-join.dto'
 import {IUsersService} from './users.service.interface'
 import {ValidateMiddleware} from '../common/validate.middleware'
+import {sign} from 'jsonwebtoken'
 
 @injectable()
 export class UsersController
@@ -19,6 +20,7 @@ export class UsersController
   constructor(
     @inject(TYPES.ILogger) private loggerService: ILogger,
     @inject(TYPES.UserService) private userService: IUsersService
+    // @inject(TYPES.ConfigService) private configService: ConfigService
   ) {
     super(loggerService)
 
@@ -48,7 +50,9 @@ export class UsersController
       return next(new HttpError(401, 'Ошибка авторизации', 'login'))
     }
 
-    this.ok(res, {status: 'ok'})
+    const jwt = await this.signJWT(body.email, process.env.JWT_SECRET as string)
+
+    this.ok(res, {jwt})
   }
 
   async join(
@@ -63,5 +67,27 @@ export class UsersController
     }
 
     this.ok(res, {email: result.email, id: result.id})
+  }
+
+  private async signJWT(email: string, secret: string): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      sign(
+        {
+          email,
+          iat: Math.floor(Date.now() / 1000)
+        },
+        secret,
+        {
+          algorithm: 'HS256'
+        },
+        (err, token) => {
+          if (err) {
+            reject(err)
+          }
+
+          resolve(token as string)
+        }
+      )
+    })
   }
 }

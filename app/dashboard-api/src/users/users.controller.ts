@@ -36,6 +36,12 @@ export class UsersController
         method: 'post',
         func: this.login,
         middlewares: [new ValidateMiddleware(UserLoginDto)]
+      },
+      {
+        path: '/info',
+        method: 'get',
+        func: this.info,
+        middlewares: []
       }
     ])
   }
@@ -67,6 +73,14 @@ export class UsersController
     }
 
     this.ok(res, {email: result.email, id: result.id})
+  }
+
+  async info(
+    {user}: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    this.ok(res, user)
   }
 
   private async signJWT(email: string, secret: string): Promise<string> {

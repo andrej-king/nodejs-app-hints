@@ -9,6 +9,7 @@ import {json} from 'body-parser'
 import {IExceptionFilter} from './errors/exception.filter.interface'
 import {UsersController} from './users/users.controller'
 import {PrismaService} from './database/prisma.service'
+import {AuthMiddleware} from './common/auth.middleware'
 
 @injectable()
 export class App {
@@ -29,6 +30,8 @@ export class App {
 
   useMiddleware(): void {
     this.app.use(json())
+    const authMiddleware = new AuthMiddleware(process.env.JWT_SECRET as string)
+    this.app.use(authMiddleware.execute.bind(authMiddleware))
   }
 
   useRoutes(): void {

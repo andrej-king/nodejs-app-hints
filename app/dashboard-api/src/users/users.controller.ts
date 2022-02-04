@@ -11,6 +11,7 @@ import {UserJoinDto} from './dto/user-join.dto'
 import {IUsersService} from './users.service.interface'
 import {ValidateMiddleware} from '../common/validate.middleware'
 import {sign} from 'jsonwebtoken'
+import {AuthGuard} from '../common/auth.guard'
 
 @injectable()
 export class UsersController
@@ -40,7 +41,7 @@ export class UsersController
         path: '/info',
         method: 'get',
         func: this.info,
-        middlewares: []
+        middlewares: [new AuthGuard()]
       }
     ])
   }

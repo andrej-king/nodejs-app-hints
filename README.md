@@ -95,11 +95,23 @@
   * Параметры могут быть сохранены `package.json` файле.
 
 ## Dashboard API
-* `make dashboard-api` Run app.
-* `make app-dashboard-api-lint` Run app linters.
-* `make app-dashboard-api-lint-fix` Run app linters with 'fix' mode.
+* `make dashboard-api` Запуск приложения.
+* `make app-dashboard-api-migrations` Миграции для бд.
+* `make app-dashboard-api-lint` Запуск linter.
+* `make app-dashboard-api-lint-fix` Запуск linter в 'fix' mode.
 * `make app-dashboard-api-build` Typescript компилятор (компилирует ts в папку ./dist)
 * `app-dashboard-api-performance` Посмотреть производительность приложения (Сгенерированные html графики складываются в папку `.clinic`) (в docker должен быть установлен `clinic` и `autocannon`)
+* Endpoints:
+  * [POST] localhost:3000/users/join
+    * email: string
+    * password: string
+    * name: string
+  * [POST] localhost:3000/users/login
+    * email: string
+    * password: string
+  * [GET] localhost:3000/users/info
+    * Headers:
+      * Authorization: Bearer {JWT Token}
 
 ## [Typescript][Typescript]
 * [Tutorial][TypescriptTutorial]

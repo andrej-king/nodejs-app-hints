@@ -96,11 +96,12 @@
 
 ## Dashboard API
 * `make dashboard-api` Запуск приложения.
-* `make app-dashboard-api-migrations` Миграции для бд.
-* `make app-dashboard-api-lint` Запуск linter.
-* `make app-dashboard-api-lint-fix` Запуск linter в 'fix' mode.
+* `make app-dashboard-api-migrations` Миграции для бд
+* `make app-dashboard-api-lint` Запуск linters
+* `make app-dashboard-api-lint-fix` Запуск linter в 'fix' mode
 * `make app-dashboard-api-build` Typescript компилятор (компилирует ts в папку ./dist)
 * `app-dashboard-api-performance` Посмотреть производительность приложения (Сгенерированные html графики складываются в папку `.clinic`) (в docker должен быть установлен `clinic` и `autocannon`)
+* `app-dashboard-api-test` Запустить тесты
 * Endpoints:
   * [POST] localhost:3000/users/join
     * email: string
@@ -118,6 +119,7 @@
 * `npm i -g typescript` Глобальная установка typescript компилятора.
 * `tsc` Компилятор (компилирует `ts` в `js` по правилам указанным в `tsconfig.json` файле.
 * `tcs --init` сгенерировать `tsconfig.json` файл для конфигурации компилятора.
+* `.spec.ts` расширение файлов с тестами (`jest` будет автоматически подтягивать эти файлы для тестирования).
 
 [Red]: https://via.placeholder.com/10/f03c15/000000?text=+
 [Green]: https://via.placeholder.com/10/adff2f/000000?text=+

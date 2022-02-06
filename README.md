@@ -101,7 +101,9 @@
 * `make app-dashboard-api-lint-fix` Запуск linter в 'fix' mode
 * `make app-dashboard-api-build` Typescript компилятор (компилирует ts в папку ./dist)
 * `app-dashboard-api-performance` Посмотреть производительность приложения (Сгенерированные html графики складываются в папку `.clinic`) (в docker должен быть установлен `clinic` и `autocannon`)
-* `app-dashboard-api-test` Запустить тесты
+* `app-dashboard-api-tests` Запустить все тесты
+* `app-dashboard-api-tests-unit` Запустить unit тесты
+* `app-dashboard-api-tests-e2e` Запустить e2e тесты
 * Endpoints:
   * [POST] localhost:3000/users/join
     * email: string

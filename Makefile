@@ -100,8 +100,13 @@ docker-dashboard-api-build:
 
 app-dashboard-api-init: app-dashboard-api-npm-install app-dashboard-api-build
 
-app-dashboard-api-test:
+app-dashboard-api-tests-unit:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run test
+
+app-dashboard-api-tests-e2e:
+	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm run test:e2e
+
+app-dashboard-api-tests: app-dashboard-api-tests-unit app-dashboard-api-tests-e2e
 
 app-dashboard-api-npm-install:
 	docker-compose -f docker-compose.dashboard-api.yml run --rm node-cli npm install

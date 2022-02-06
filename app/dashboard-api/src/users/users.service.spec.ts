@@ -26,7 +26,9 @@ let usersService: IUsersService
 beforeAll(() => {
   container.bind<IUsersService>(TYPES.UserService).to(UsersService)
   // container.bind<IConfigService>(TYPES.ConfigService).toConstantValue(ConfigServiceMock)
-  container.bind<IUsersRepository>(TYPES.UsersRepository).toConstantValue(UsersRepositoryMock)
+  container
+    .bind<IUsersRepository>(TYPES.UsersRepository)
+    .toConstantValue(UsersRepositoryMock)
 
   // configService = container.get<IConfigService>(TYPES.ConfigService)
   usersRepository = container.get<IUsersRepository>(TYPES.UsersRepository)
@@ -43,8 +45,8 @@ describe('User service', () => {
         id: 1,
         name: user.name,
         email: user.email,
-        password: user.password,
-      }),
+        password: user.password
+      })
     )
 
     createdUser = await usersService.createUser({

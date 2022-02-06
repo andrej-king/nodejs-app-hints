@@ -52,9 +52,9 @@ describe('User service', () => {
   it('createUser - success', async () => {
     // configService.get = jest.fn().mockReturnValueOnce('1')
 
-    const userEmail: string = 'user@test.app'
-    const userName: string = 'John'
-    const userPassword: string = 'myBestPassword'
+    const userEmail = 'user@test.app'
+    const userName = 'John'
+    const userPassword = 'myBestPassword'
 
     const createdUser = await usersService.createUser({
       email: userEmail,
@@ -67,9 +67,9 @@ describe('User service', () => {
   })
 
   it('validateUser - success', async () => {
-    const userEmail: string = 'user@test.app'
-    const userName: string = 'John'
-    const userPassword: string = 'myBestPassword'
+    const userEmail = 'user@test.app'
+    const userName = 'John'
+    const userPassword = 'myBestPassword'
 
     const createdUser = await usersService.createUser({
       email: userEmail,
@@ -89,9 +89,9 @@ describe('User service', () => {
   })
 
   it('validateUser - wrong password', async () => {
-    const userEmail: string = 'user@test.app'
-    const userName: string = 'John'
-    const userPassword: string = 'myBestPassword'
+    const userEmail = 'user@test.app'
+    const userName = 'John'
+    const userPassword = 'myBestPassword'
 
     const createdUser = await usersService.createUser({
       email: userEmail,
@@ -111,9 +111,9 @@ describe('User service', () => {
   })
 
   it('validateUser - user not found', async () => {
-    const userEmail: string = 'user@test.app'
-    const userName: string = 'John'
-    const userPassword: string = 'myBestPassword'
+    const userEmail = 'user@test.app'
+    const userName = 'John'
+    const userPassword = 'myBestPassword'
 
     const createdUser = await usersService.createUser({
       email: userEmail,

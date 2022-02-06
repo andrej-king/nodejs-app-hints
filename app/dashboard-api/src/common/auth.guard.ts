@@ -7,6 +7,6 @@ export class AuthGuard implements IMiddleware {
       return next()
     }
 
-    res.status(401).json({error: 'Не авторизован'})
+    res.status(401).json({err: 'Не авторизован'})
   }
 }

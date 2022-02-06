@@ -7,6 +7,8 @@ import {User} from './user.entity'
 import {UserModel} from '@prisma/client'
 import 'reflect-metadata'
 
+// Unit тесты
+
 // mock
 // const ConfigServiceMock: IConfigService = {
 //   get: jest.fn()
@@ -35,27 +37,98 @@ beforeAll(() => {
   usersService = container.get<IUsersService>(TYPES.UserService)
 })
 
-let createdUser: UserModel | null
+beforeEach(() => {
+  usersRepository.create = jest.fn().mockImplementationOnce(
+    (user: User): UserModel => ({
+      id: 1,
+      name: user.name,
+      email: user.email,
+      password: user.password
+    })
+  )
+})
 
 describe('User service', () => {
-  it('createUser', async () => {
+  it('createUser - success', async () => {
     // configService.get = jest.fn().mockReturnValueOnce('1')
-    usersRepository.create = jest.fn().mockImplementationOnce(
-      (user: User): UserModel => ({
-        id: 1,
-        name: user.name,
-        email: user.email,
-        password: user.password
-      })
-    )
 
-    createdUser = await usersService.createUser({
-      email: 'user@test.app',
-      name: 'John',
-      password: 'myBestPassword'
+    const userEmail: string = 'user@test.app'
+    const userName: string = 'John'
+    const userPassword: string = 'myBestPassword'
+
+    const createdUser = await usersService.createUser({
+      email: userEmail,
+      name: userName,
+      password: userPassword
     })
 
     expect(createdUser?.id).toEqual(1)
-    expect(createdUser?.password).not.toEqual('myBestPassword')
+    expect(createdUser?.password).not.toEqual(userPassword)
+  })
+
+  it('validateUser - success', async () => {
+    const userEmail: string = 'user@test.app'
+    const userName: string = 'John'
+    const userPassword: string = 'myBestPassword'
+
+    const createdUser = await usersService.createUser({
+      email: userEmail,
+      name: userName,
+      password: userPassword
+    })
+
+    usersRepository.find = jest.fn().mockReturnValueOnce(createdUser)
+
+    // сравнивается переданный пароль с паролем у созданного ранее пользователя
+    const result = await usersService.validateUser({
+      email: userEmail,
+      password: userPassword
+    })
+
+    expect(result).toBeTruthy()
+  })
+
+  it('validateUser - wrong password', async () => {
+    const userEmail: string = 'user@test.app'
+    const userName: string = 'John'
+    const userPassword: string = 'myBestPassword'
+
+    const createdUser = await usersService.createUser({
+      email: userEmail,
+      name: userName,
+      password: userPassword
+    })
+
+    usersRepository.find = jest.fn().mockReturnValueOnce(createdUser)
+
+    // сравнивается переданный пароль с паролем у созданного ранее пользователя
+    const result = await usersService.validateUser({
+      email: userEmail,
+      password: '123'
+    })
+
+    expect(result).toBeFalsy()
+  })
+
+  it('validateUser - user not found', async () => {
+    const userEmail: string = 'user@test.app'
+    const userName: string = 'John'
+    const userPassword: string = 'myBestPassword'
+
+    const createdUser = await usersService.createUser({
+      email: userEmail,
+      name: userName,
+      password: userPassword
+    })
+
+    usersRepository.find = jest.fn().mockReturnValueOnce(null)
+
+    // сравнивается переданный пароль с паролем у созданного ранее пользователя
+    const result = await usersService.validateUser({
+      email: userEmail,
+      password: userPassword
+    })
+
+    expect(result).toBeFalsy()
   })
 })
